@@ -1,8 +1,9 @@
 function P = covarianceObservation(Y, proportionnalite)
-	taille = size(Y);
-	taille = (taille(1)/2)-1;
+	taille = size(Y,1);
 	P = eye(taille);
-	for i=1:taille
-		P(i,i) = (proportionnalite*norm(Y([2*i+1:2*i+2])))^2;
+	for i=1:2:taille
+		variance = (proportionnalite*norm(Y([i:i+1])))^2;
+		P(i,i) = variance;
+		P(i+1,i+1) = variance;
 	end
 end

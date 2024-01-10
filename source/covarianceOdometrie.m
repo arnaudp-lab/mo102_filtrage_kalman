@@ -1,7 +1,5 @@
-function P = covarianceObservation(u, proportionnalite)
-	taille = size(Y)/2;
-	P = eye(taille);
-	for i=1:size(tailles)
-		P(i,i) = (proportionnalite*length(Y([2*i-1:2*i])))^2;
-	end
+function P = covarianceOdometrie(u, proportionnalite)
+	P = eye(2);
+	P(1,1) = (proportionnalite * u(1))^2;
+	P(2,2) = (proportionnalite * u(2))^2;
 end

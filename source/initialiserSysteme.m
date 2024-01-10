@@ -1,9 +1,9 @@
-function [X0, P0, A, B, H0] = initialiserSysteme(y)
-	X0 = [0 0]';
-	P0 = covarianceObservation(cat(1, X0, y), 1);
-	A = eye(P0);
+function [X0, P0, A, B, H0] = initialiserSysteme(y, coeff)
+	X0 = cat(1, [0 0]', y);
+	P0 = covarianceObservation(y, coeff);
+	A = eye(size(P0));
 	B = eye(size(P0));
-	% B = B(1:end,1:size(u));
+	B = B(1:end,1:end);
 
 	taille = size(X0);
 	taille = taille(1);
