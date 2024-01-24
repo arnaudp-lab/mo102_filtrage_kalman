@@ -1,9 +1,16 @@
-function[] = afficherSysteme(X, Px)
+function[] = afficherSysteme(X, Px, positions_prec)
+	clf;
 	hold on;
+	% affichage des positions précédentes
+	plot(positions_prec(1:2:end), positions_prec(2:2:end), '-');
+
+	% affichage de la position courante
 	plot(X(1), X(2), 'o');
+
+	% affichage des amers
 	taille = size(X, 1);
-	x_vals = X([3:2:taille]);
-	y_vals = X([4:2:taille]);
+	x_vals = X([1:2:taille]);
+	y_vals = X([2:2:taille]);
 	plot(x_vals, y_vals, '.');
 	for i=1:(taille/2)-1
 		angles = 0:pi/50:2*pi;
